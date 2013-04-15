@@ -1,7 +1,7 @@
-# Zend Framework Quickstart with PHP-DI (Dependency Injection)
+# Zend Framework Quickstart with PHP-DI
 
-This project is an update of the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
-with [PHP-DI](http://github.com/mnapoli/PHP-DI) configured (version 3.0).
+This project is the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
+configured with [PHP-DI](http://github.com/mnapoli/PHP-DI) (version 3.0).
 
 [PHP-DI](http://github.com/mnapoli/PHP-DI) is a Dependency Injection Container for PHP.
 
