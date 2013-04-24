@@ -1,7 +1,7 @@
 {
 	"name": "mnapoli/PHP-DI-ZF1",
 	"require": {
-		"mnapoli/php-di": "3.0.*-dev",
+		"mnapoli/php-di": "3.0.*",
 		"zendframework/zendframework1": "1.12.*"
 	}
 }
