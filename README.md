@@ -7,7 +7,7 @@ configured with [PHP-DI](http://github.com/mnapoli/PHP-DI).
 
 [PHP-DI](http://github.com/mnapoli/PHP-DI) is a Dependency Injection Container for PHP.
 
-## Use
+## Set up
 
 Require the libraries with Composer:
 
@@ -39,6 +39,8 @@ To use PHP-DI in your ZF1 application, you need to change the Dispatcher used by
 ```
 
 That's it!
+
+## Usage
 
 Now you can inject dependencies in your controllers!
 
@@ -77,7 +79,9 @@ class GuestbookController extends Zend_Controller_Action
 }
 ```
 
-## Quickstart
+Read more about [PHP-DI](http://github.com/mnapoli/PHP-DI).
+
+## Zend Framework quickstart
 
 The quickstart is in the `quickstart/` folder. You can look at it to see how PHP-DI can be integrated to a ZF1 application.
 
