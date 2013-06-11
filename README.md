@@ -11,12 +11,14 @@ configured with [PHP-DI](http://github.com/mnapoli/PHP-DI).
 
 Require the libraries with Composer:
 
-    {
-        "require": {
-            "mnapoli/php-di": "*",
-            "mnapoli/php-di-zf1": "*"
-        }
+```json
+{
+    "require": {
+        "mnapoli/php-di": "*",
+        "mnapoli/php-di-zf1": "*"
     }
+}
+```
 
 To use PHP-DI in your ZF1 application, you need to change the Dispatcher used by the Front Controller in the Bootstrap.
 
