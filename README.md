@@ -1,53 +1,88 @@
-# Zend Framework Quickstart with PHP-DI
+# PHP-DI integration with Zend Framework 1
 
-This project is the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
-configured with [PHP-DI](http://github.com/mnapoli/PHP-DI) (version 3.0).
+This library provides integration for PHP-DI with Zend Framework 1.
+
+This project also contains the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
+configured with [PHP-DI](http://github.com/mnapoli/PHP-DI).
 
 [PHP-DI](http://github.com/mnapoli/PHP-DI) is a Dependency Injection Container for PHP.
 
-To run the project, get [composer](http://getcomposer.org/doc/00-intro.md):
+## Use
 
-    $ curl -s http://getcomposer.org/installer | php
-    $ php composer.phar install
-
-
-**Note**: I tried not to diverge too much from the official quickstart. So the code may look messy, but that's
-how the ZF quickstart is ;)
-
-## Differences
-
-Here is a short summary of what's different with the official ZF quickstart:
-
-Composer:
+Require the libraries with Composer:
 
     {
         "require": {
-            "mnapoli/php-di": "3.*"
+            "mnapoli/php-di": "*",
+            "mnapoli/php-di-zf1": "*"
         }
     }
 
-Bootstrap:
+To use PHP-DI in your ZF1 application, you need to change the Dispatcher used by the Front Controller in the Bootstrap.
 
+```php
     /**
      * Initialize the dependency injection container
      */
     protected function _initDependencyInjection()
+	{
+		$container = new \DI\Container();
+
+        $dispatcher = new \DI\ZendFramework1\Dispatcher();
+        $dispatcher->setContainer($container);
+
+        $frontController = Zend_Controller_Front::getInstance();
+        $frontController->setDispatcher($dispatcher);
+	}
+```
+
+That's it!
+
+Now you can inject dependencies in your controllers!
+
+For example, here is the GuestbookController of the quickstart:
+
+```php
+use DI\Annotation\Inject;
+
+class GuestbookController extends Zend_Controller_Action
+{
+    /**
+     * This dependency will be injected by PHP-DI
+     * @Inject
+     * @var Application_Service_GuestbookService
+     */
+    private $guestbookService;
+
+    public function indexAction()
     {
-        $container = new \DI\Container();
-        Zend_Registry::set('container', $container);
+        $this->view->entries = $this->guestbookService->getAllEntries();
     }
 
-Controllers:
+    public function signAction()
+    {
+        $request = $this->getRequest();
+        $form    = new Application_Form_Guestbook();
 
-Use the `get()` action helper:
+        if ($this->getRequest()->isPost() && $form->isValid($request->getPost())) {
+            $this->guestbookService->addEntry($form->getValues());
+            return $this->_helper->redirector('index');
+        }
 
-    $guestbookService = $this->get('Application_Service_GuestbookService');
+        $this->view->form = $form;
+    }
 
-**Note**: As presented, the container is used as a Service Locator in the controllers because we use `get()` (but not in the services).
-The Service Locator is considered to be an anti-pattern because it introduces a dependency to the container,
-but in Zend Framework 1 it is very complicated to do otherwise due to how controllers are instantiated.
+}
+```
 
-However, this shouldn't be too much of a problem if you don't unit test your controllers (but you should do integration tests however)
-and if you have a correct service layer (i.e. logic code is in the models and in the services, not in the controllers).
+## Quickstart
 
-Keep in mind that Zend Framework 2 and Symfony 2 both propose the same functionnality (container as a service locator in controllers).
+The quickstart is in the `quickstart/` folder. You can look at it to see how PHP-DI can be integrated to a ZF1 application.
+
+To run the quickstart, get [composer](http://getcomposer.org/doc/00-intro.md) and install the dependencies:
+
+    $ curl -s http://getcomposer.org/installer | php
+    $ php composer.phar install
+
+**Note**: I tried not to diverge too much from the official quickstart. So the code may look messy, but that's
+how the ZF quickstart is ;)

@@ -13,7 +13,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
-require_once dirname(__FILE__) . '/../vendor/autoload.php';
+require_once dirname(__FILE__) . '/../../vendor/autoload.php';
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(

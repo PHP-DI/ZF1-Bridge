@@ -1,7 +1,16 @@
 {
-	"name": "mnapoli/PHP-DI-ZF1",
+    "name": "mnapoli/php-di-zf1",
+    "type": "library",
+    "description": "Integrates PHP-DI to Zend Framework 1",
+    "homepage": "http://mnapoli.github.com/PHP-DI-ZF1/",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "DI\\ZendFramework1": "src/"
+        }
+    },
 	"require": {
-		"mnapoli/php-di": "3.0.*",
+		"mnapoli/php-di": "3.*",
 		"zendframework/zendframework1": "1.12.*"
 	}
 }

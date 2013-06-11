@@ -1,5 +1,7 @@
 <?php
 
+use DI\ZendFramework1\Dispatcher;
+
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
     protected function _initDoctype()
@@ -16,7 +18,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	{
 		$container = new \DI\Container();
 
-        Zend_Registry::set('container', $container);
+        $dispatcher = new Dispatcher();
+        $dispatcher->setContainer($container);
+
+        $frontController = Zend_Controller_Front::getInstance();
+        $frontController->setDispatcher($dispatcher);
 	}
 }
 
