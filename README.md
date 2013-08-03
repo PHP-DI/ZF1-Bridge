@@ -7,6 +7,8 @@ configured with [PHP-DI](http://github.com/mnapoli/PHP-DI).
 
 [PHP-DI](http://github.com/mnapoli/PHP-DI) is a Dependency Injection Container for PHP.
 
+If you are looking for Zend Framework 2 integration, head over [here](https://github.com/mnapoli/PHP-DI-ZF2).
+
 ## Set up
 
 Require the libraries with Composer:
