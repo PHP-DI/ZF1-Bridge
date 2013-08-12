@@ -17,25 +17,15 @@ use DI\ZendFramework1\Dispatcher;
  */
 class DispatcherTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testSetGetContainer()
     {
-        $dispatcher = new Dispatcher();
-
         $container = new Container();
 
-        $hashIn = spl_object_hash($container);
+        $dispatcher = new Dispatcher();
+        $dispatcher->setContainer($container);
 
-        $dispatcher->setContainer( $container );
-
-        $out = $dispatcher->getContainer();
-
-        $hashOut = spl_object_hash($out);
-
-        $this->assertEquals($hashIn, $hashOut);
+        $this->assertSame($container, $dispatcher->getContainer());
     }
-
-
 
     public function testDispatch()
     {
@@ -59,8 +49,5 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
         $dispatcher->dispatch($request, $response);
 
         $this->assertEquals("a value", $valueDependency->somedata);
-
-
     }
-
 }
