@@ -94,3 +94,9 @@ To run the quickstart, get [composer](http://getcomposer.org/doc/00-intro.md) an
 
 **Note**: I tried not to diverge too much from the official quickstart. So the code may look messy, but that's
 how the ZF quickstart is ;)
+
+## Change log
+
+* 1.1.0 Require PHP-DI >= 3.3
+* 1.0.1 Bugfix
+* 1.0.0 First release
