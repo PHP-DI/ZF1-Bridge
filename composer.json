@@ -10,7 +10,7 @@
         }
     },
 	"require": {
-		"mnapoli/php-di": "3.*",
+		"mnapoli/php-di": "3.3.*",
 		"zendframework/zendframework1": "1.12.*"
 	}
 }

@@ -78,22 +78,12 @@ class Dispatcher extends Zend_Controller_Dispatcher_Standard
          */
         $className = $this->loadClass($className);
 
+        $controller = new $moduleClassName($request, $this->getResponse(), $this->getParams());
+
         // Code edited for PHP-DI
         // -----------------------------------------------
-        // Configure the container
-        $this->container->set('Zend_Controller_Request_Abstract', $request);
-        $this->container->set('Zend_Controller_Response_Abstract', $this->getResponse());
-        $this->container->set('DI_ZF1_CONTROLLER_PARAMS', $this->getParams());
-        $this->container->set($moduleClassName)
-            ->withConstructor(
-                array(
-                     'request'    => 'Zend_Controller_Request_Abstract',
-                     'response'   => 'Zend_Controller_Response_Abstract',
-                     'invokeArgs' => 'DI_ZF1_CONTROLLER_PARAMS'
-                )
-            );
-        // Instantiate the controller using the container
-        $controller = $this->container->get($moduleClassName);
+        // Inject the dependencies on the controller
+        $this->container->injectOn($controller);
         // -----------------------------------------------
 
         if (!($controller instanceof Zend_Controller_Action_Interface) &&
