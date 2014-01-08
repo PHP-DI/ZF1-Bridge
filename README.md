@@ -29,15 +29,17 @@ To use PHP-DI in your ZF1 application, you need to change the Dispatcher used by
      * Initialize the dependency injection container
      */
     protected function _initDependencyInjection()
-	{
-		$container = new \DI\Container();
+    {
+        $builder = new ContainerBuilder();
+        // Configure your container here
+        $container = $builder->build();
 
         $dispatcher = new \DI\ZendFramework1\Dispatcher();
         $dispatcher->setContainer($container);
 
         $frontController = Zend_Controller_Front::getInstance();
         $frontController->setDispatcher($dispatcher);
-	}
+    }
 ```
 
 That's it!
@@ -49,8 +51,6 @@ Now you can inject dependencies in your controllers!
 For example, here is the GuestbookController of the quickstart:
 
 ```php
-use DI\Annotation\Inject;
-
 class GuestbookController extends Zend_Controller_Action
 {
     /**
@@ -97,6 +97,7 @@ how the ZF quickstart is ;)
 
 ## Change log
 
-* 1.1.0 Require PHP-DI >= 3.3
+* 2.0.0 Requires PHP-DI >= 4.0.0
+* 1.1.0 Requires PHP-DI >= 3.3
 * 1.0.1 Bugfix
 * 1.0.0 First release

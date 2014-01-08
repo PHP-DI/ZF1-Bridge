@@ -9,8 +9,8 @@
 
 namespace UnitTests\DI;
 
-use DI\Container;
-use DI\ZendFramework1\Dispatcher;
+use DI\ContainerBuilder;
+use DI\Bridge\ZendFramework1\Dispatcher;
 
 /**
  * Test class for Dispatcher
@@ -34,10 +34,10 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
         $valueDependency = new \stdClass();
 
-        $container = new Container();
+        $container = ContainerBuilder::buildDevContainer();
         $container->set("SomeName", $valueDependency);
 
-        $dispatcher->setContainer( $container );
+        $dispatcher->setContainer($container);
 
 
         $request = new \Zend_Controller_Request_Simple();

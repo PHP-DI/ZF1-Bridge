@@ -2,14 +2,14 @@
 /**
  * PHP-DI
  *
- * @link      http://mnapoli.github.io/PHP-DI/
+ * @link      http://php-di.org/
  * @copyright Matthieu Napoli (http://mnapoli.fr/)
  * @license   http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
 
-namespace DI\ZendFramework1;
+namespace DI\Bridge\ZendFramework1;
 
-use DI\Container;
+use DI\ContainerInterface;
 use Exception;
 use Zend_Controller_Action;
 use Zend_Controller_Action_Interface;
@@ -27,9 +27,8 @@ use Zend_Controller_Response_Abstract;
  */
 class Dispatcher extends Zend_Controller_Dispatcher_Standard
 {
-
     /**
-     * @var Container
+     * @var ContainerInterface
      */
     private $container;
 
@@ -135,7 +134,7 @@ class Dispatcher extends Zend_Controller_Dispatcher_Standard
     }
 
     /**
-     * @return Container
+     * @return ContainerInterface
      */
     public function getContainer()
     {
@@ -143,11 +142,10 @@ class Dispatcher extends Zend_Controller_Dispatcher_Standard
     }
 
     /**
-     * @param Container $container
+     * @param ContainerInterface $container
      */
-    public function setContainer(Container $container)
+    public function setContainer(ContainerInterface $container)
     {
         $this->container = $container;
     }
-
 }

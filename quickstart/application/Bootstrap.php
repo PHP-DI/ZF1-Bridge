@@ -1,6 +1,6 @@
 <?php
 
-use DI\ZendFramework1\Dispatcher;
+use DI\Bridge\ZendFramework1\Dispatcher;
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
@@ -15,14 +15,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      * Initialize the dependency injection container
      */
     protected function _initDependencyInjection()
-	{
-		$container = new \DI\Container();
+    {
+        $container = \DI\ContainerBuilder::buildDevContainer();
 
         $dispatcher = new Dispatcher();
         $dispatcher->setContainer($container);
 
         $frontController = Zend_Controller_Front::getInstance();
         $frontController->setDispatcher($dispatcher);
-	}
+    }
 }
-
