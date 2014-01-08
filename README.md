@@ -3,9 +3,9 @@
 This library provides integration for PHP-DI with Zend Framework 1.
 
 This project also contains the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
-configured with [PHP-DI](http://github.com/mnapoli/PHP-DI).
+configured with [PHP-DI](http://php-di.org).
 
-[PHP-DI](http://github.com/mnapoli/PHP-DI) is a Dependency Injection Container for PHP.
+[PHP-DI](http://php-di.org) is a Dependency Injection Container for PHP.
 
 If you are looking for Zend Framework 2 integration, head over [here](https://github.com/mnapoli/PHP-DI-ZF2).
 
@@ -34,7 +34,7 @@ To use PHP-DI in your ZF1 application, you need to change the Dispatcher used by
         // Configure your container here
         $container = $builder->build();
 
-        $dispatcher = new \DI\ZendFramework1\Dispatcher();
+        $dispatcher = new \DI\Bridge\ZendFramework1\Dispatcher();
         $dispatcher->setContainer($container);
 
         $frontController = Zend_Controller_Front::getInstance();
