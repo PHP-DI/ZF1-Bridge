@@ -1,17 +1,15 @@
 # PHP-DI integration with Zend Framework 1
 
-This library provides integration for PHP-DI with Zend Framework 1.
+This library provides integration for PHP-DI with Zend Framework 1. [PHP-DI](http://php-di.org) is a Dependency Injection Container for PHP.
 
 This project also contains the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
 configured with [PHP-DI](http://php-di.org).
-
-[PHP-DI](http://php-di.org) is a Dependency Injection Container for PHP.
 
 If you are looking for Zend Framework 2 integration, head over [here](https://github.com/mnapoli/PHP-DI-ZF2).
 
 ## Documentation
 
-The full documentation is available on [PHP-DI's website](http://php-di.org/doc/frameworks/zf1.html).
+**The full documentation is available on [PHP-DI's website](http://php-di.org/doc/frameworks/zf1.html).**
 
 ## Zend Framework quickstart
 
