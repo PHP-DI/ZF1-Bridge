@@ -9,79 +9,9 @@ configured with [PHP-DI](http://php-di.org).
 
 If you are looking for Zend Framework 2 integration, head over [here](https://github.com/mnapoli/PHP-DI-ZF2).
 
-## Set up
+## Documentation
 
-Require the libraries with Composer:
-
-```json
-{
-    "require": {
-        "mnapoli/php-di": "*",
-        "mnapoli/php-di-zf1": "*"
-    }
-}
-```
-
-To use PHP-DI in your ZF1 application, you need to change the Dispatcher used by the Front Controller in the Bootstrap.
-
-```php
-    /**
-     * Initialize the dependency injection container
-     */
-    protected function _initDependencyInjection()
-    {
-        $builder = new ContainerBuilder();
-        // Configure your container here
-        $container = $builder->build();
-
-        $dispatcher = new \DI\Bridge\ZendFramework1\Dispatcher();
-        $dispatcher->setContainer($container);
-
-        $frontController = Zend_Controller_Front::getInstance();
-        $frontController->setDispatcher($dispatcher);
-    }
-```
-
-That's it!
-
-## Usage
-
-Now you can inject dependencies in your controllers!
-
-For example, here is the GuestbookController of the quickstart:
-
-```php
-class GuestbookController extends Zend_Controller_Action
-{
-    /**
-     * This dependency will be injected by PHP-DI
-     * @Inject
-     * @var Application_Service_GuestbookService
-     */
-    private $guestbookService;
-
-    public function indexAction()
-    {
-        $this->view->entries = $this->guestbookService->getAllEntries();
-    }
-
-    public function signAction()
-    {
-        $request = $this->getRequest();
-        $form    = new Application_Form_Guestbook();
-
-        if ($this->getRequest()->isPost() && $form->isValid($request->getPost())) {
-            $this->guestbookService->addEntry($form->getValues());
-            return $this->_helper->redirector('index');
-        }
-
-        $this->view->form = $form;
-    }
-
-}
-```
-
-Read more about [PHP-DI](http://github.com/mnapoli/PHP-DI).
+The full documentation is available on [PHP-DI's website](http://php-di.org/doc/frameworks/zf1.html).
 
 ## Zend Framework quickstart
 
