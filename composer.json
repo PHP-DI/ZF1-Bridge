@@ -12,5 +12,8 @@
     "require": {
         "mnapoli/php-di": "~4.0",
         "zendframework/zendframework1": "1.12.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^3.7"
     }
 }

@@ -19,7 +19,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 {
     public function testSetGetContainer()
     {
-        $container = new Container();
+        $container = ContainerBuilder::buildDevContainer();
 
         $dispatcher = new Dispatcher();
         $dispatcher->setContainer($container);
