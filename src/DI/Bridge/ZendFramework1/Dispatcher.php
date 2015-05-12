@@ -9,7 +9,7 @@
 
 namespace DI\Bridge\ZendFramework1;
 
-use DI\ContainerInterface;
+use Interop\Container\ContainerInterface;
 use Exception;
 use Zend_Controller_Action;
 use Zend_Controller_Action_Interface;
