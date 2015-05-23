@@ -5,7 +5,7 @@ This library provides integration for PHP-DI with Zend Framework 1. [PHP-DI](htt
 This project also contains the [Zend Framework quickstart](http://framework.zend.com/manual/en/learning.quickstart.intro.html)
 configured with [PHP-DI](http://php-di.org).
 
-If you are looking for Zend Framework 2 integration, head over [here](https://github.com/mnapoli/PHP-DI-ZF2).
+If you are looking for Zend Framework 2 integration, head over [here](https://github.com/PHP-DI/ZF2-Bridge).
 
 ## Documentation
 
