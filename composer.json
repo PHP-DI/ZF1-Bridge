@@ -1,8 +1,8 @@
 {
-    "name": "mnapoli/php-di-zf1",
+    "name": "php-di/zf1-bridge",
     "type": "library",
     "description": "Integrates PHP-DI to Zend Framework 1",
-    "homepage": "https://github.com/mnapoli/PHP-DI-ZF1",
+    "homepage": "https://github.com/PHP-DI/ZF1-Bridge",
     "license": "MIT",
     "autoload": {
         "psr-0": {
