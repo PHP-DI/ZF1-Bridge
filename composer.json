@@ -10,10 +10,13 @@
         }
     },
     "require": {
-        "mnapoli/php-di": "~4.0",
-        "zendframework/zendframework1": "1.12.*"
+        "mnapoli/php-di": "~4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^3.7"
+    },
+    "suggest": {
+        "zendframework/zendframework1": "The complete Zend Framework 1",
+	"zf1/zend-controller": "The involved Zend Controller fuctionality"
     }
 }
