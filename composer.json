@@ -17,6 +17,6 @@
     },
     "suggest": {
         "zendframework/zendframework1": "The complete Zend Framework 1",
-	"zf1/zend-controller": "The involved Zend Controller fuctionality"
+        "zf1/zend-controller": "The Zend Controller package only"
     }
 }
