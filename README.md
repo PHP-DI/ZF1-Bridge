@@ -25,8 +25,4 @@ how the ZF quickstart is ;)
 
 ## Change log
 
-* 2.0.1 Replaced deprecated DI\ContainerInterface to Interop\Container\ContainerInterface
-* 2.0.0 Requires PHP-DI >= 4.0.0
-* 1.1.0 Requires PHP-DI >= 3.3
-* 1.0.1 Bugfix
-* 1.0.0 First release
+See https://github.com/PHP-DI/ZF1-Bridge/releases
