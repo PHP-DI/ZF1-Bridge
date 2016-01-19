@@ -20,6 +20,8 @@ To run the quickstart, get [composer](http://getcomposer.org/doc/00-intro.md) an
     $ curl -s http://getcomposer.org/installer | php
     $ php composer.phar install
 
+Please be aware that the quickstart uses [annotations](http://php-di.org/doc/annotations.html). Since PHP-DI 5 annotations are disabled by default, please follow [the installation instructions to enable them](http://php-di.org/doc/annotations.html).
+
 **Note**: I tried not to diverge too much from the official quickstart. So the code may look messy, but that's
 how the ZF quickstart is ;)
 
