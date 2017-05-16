@@ -9,7 +9,7 @@
 
 namespace DI\Bridge\ZendFramework1;
 
-use Interop\Container\ContainerInterface;
+use DI\Container;
 use Exception;
 use Zend_Controller_Action;
 use Zend_Controller_Action_Interface;
@@ -28,7 +28,7 @@ use Zend_Controller_Response_Abstract;
 class Dispatcher extends Zend_Controller_Dispatcher_Standard
 {
     /**
-     * @var ContainerInterface
+     * @var Container
      */
     private $container;
 
@@ -133,7 +133,7 @@ class Dispatcher extends Zend_Controller_Dispatcher_Standard
     }
 
     /**
-     * @return ContainerInterface
+     * @return Container
      */
     public function getContainer()
     {
@@ -141,9 +141,9 @@ class Dispatcher extends Zend_Controller_Dispatcher_Standard
     }
 
     /**
-     * @param ContainerInterface $container
+     * @param Container $container
      */
-    public function setContainer(ContainerInterface $container)
+    public function setContainer(Container $container)
     {
         $this->container = $container;
     }
